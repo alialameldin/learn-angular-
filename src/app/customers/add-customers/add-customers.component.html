@@ -1,0 +1,17 @@
+<div *ngIf = "isUserAdded" class="bg-success">user added successfully</div>
+<form #addCustomerForm = "ngForm" (submit) = "addCustomer(addCustomerForm)">
+  <input class="form-input" type = "text" [(ngModel)] = "firstname" name = "firstname" required minlength="10">
+  <br>
+  <select [(ngModel)] = "customerType" name = "customerType" required>
+    <option value = "1"> preiuem </option>
+    <option value = "2"> standard </option>
+  </select>
+  <br>
+  <textarea [(ngModel)] = "description" name = "description"></textarea>
+  <br>
+  <input type="checkbox" [(ngModel)] = "terms" name = "terms" required> accept accept terms
+  <br>
+  <button type="submit" [disabled]="!addCustomerForm.valid">add customer</button>
+  <button (click) = "resetfunct(addCustomerForm)"> reset </button>
+  <button (click) = "setfunct(addCustomerForm)"> set </button>
+</form>
